@@ -1,0 +1,37 @@
+@startuml "implementação"
+
+package Questão5 {
+
+    class Amplificador {
+        +turnOn(): void
+        +setVolume(volume: int): void
+    }
+
+    class DvdPlayer {
+        +playMovie(movie: String): void
+    }
+
+    class Lights {
+        +dim(level: int): void
+    }
+
+    class HomeTheaterFacade {
+        -amp: Amplificador
+        -dvd: DvdPlayer
+        -lights: Lights
+        +HomeTheaterFacade(amp: Amplificador, dvd: DvdPlayer, lights: Lights)
+        +watchMovie(movie: String): void
+    }
+
+    class Client {
+        +main(args: String[]): void
+    }
+
+    Amplificador <|-- HomeTheaterFacade:Composição
+    DvdPlayer <|-- HomeTheaterFacade:Composição
+    Lights <|-- HomeTheaterFacade :Composição
+    HomeTheaterFacade <-- Client: usa o facade
+    
+}
+
+@enduml
