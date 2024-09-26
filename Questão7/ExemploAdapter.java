@@ -7,19 +7,19 @@ package Questão7;
  existente sem modificá-lo diretamente.
  */
 
- //Interface que o cliente espera usar
+ //Interface que o usuario pretende utilizar
  interface Retangulo {
     void desenharRetangulo();
 }
 
-//Classe existente que desenha um quadrado
+//Classe que desenha um quadrado 
 class Quadrado {
     public void desenharQuadrado() {
         System.out.println("Desenhando um quadrado...");
     }
 }
 
-//Adapter que converte a interface de Quadrado para Retangulo
+//Adapter que adapta e converte a interface de quadrado para retangulo
 class AdaptadorQuadradoParaRetangulo implements Retangulo {
     private Quadrado quadrado;
 
@@ -33,7 +33,7 @@ class AdaptadorQuadradoParaRetangulo implements Retangulo {
     }
 }
 
-//Cliente utilizando o Adapter
+//Cliente usando o Adapter
 class Cliente {
     public void desenharForma(Retangulo retangulo) {
         retangulo.desenharRetangulo();
